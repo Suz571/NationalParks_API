@@ -20,8 +20,15 @@ $(document).ready(function(){
         return response;
     }
 
-    function displayResults(){
-        
+    function displayResults(responseJson){
+        $('#results-list').empty();
+        for (let i = 0; i < responseJson.length; i++) {
+            $('#results-list').append(
+                `<li><h3><a href="${responseJson[i].html_url}">${responseJson[i].name}</a></h3>
+                <p>${responseJson[i].description}</p>
+                </li>`
+            )};
+        $('#results').removeClass('hidden');
     }
 
 
