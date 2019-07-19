@@ -26,6 +26,12 @@ $(document).ready(function(){
 
     function displayResults(responseJson){
         $('#results-list').empty();
+
+        console.log(maxResults);
+        console.log(`${responseJson[i].html_url}`);
+        console.log(`${responseJson[i].description}`);
+        console.log(`${responseJson[i].fullname}`);
+        
         for (let i = 0; i < maxResults; i++) {
             $('#results-list').append(
                 `<li><h3><a href="${responseJson[i].html_url}">${responseJson[i].fullname}</a></h3>
