@@ -27,7 +27,6 @@ $(document).ready(function(){
 
     function displayResults(responseJson){
         $('#results-list').empty();    
-         //let responseJson.data.length = maxResults;
          for (let i = 0; i < responseJson.data.length; i++){
             $('#results-list').append(
                 `<li><h3><a href="${responseJson.data[i].url}">${responseJson.data[i].fullName}</a></h3>
