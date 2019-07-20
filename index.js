@@ -4,9 +4,10 @@ $(document).ready(function(){
 
         const apiKey = 'v7M0R5aZGFl5syUwiKzEdcsroABEQcPveWnWC8R0';
         let stateCode = $('#stateCode').val();
+        let maxResults = $('#maxResults').val();
         const apiURL = "https://developer.nps.gov/api/v1/parks?stateCode="
         let apiPath = apiURL+stateCode+'&api_key='+apiKey+'&limit='+maxResults;
-        let maxResults = $('#maxResults').val();
+   
         console.log(stateCode);
         console.log(apiPath);
         console.log(maxResults);
