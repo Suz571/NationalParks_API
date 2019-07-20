@@ -6,7 +6,7 @@ $(document).ready(function(){
         let stateCode = $('#stateCode').val();
         const apiURL = "https://developer.nps.gov/api/v1/parks?stateCode="
         let apiPath = apiURL+stateCode+'&api_key='+apiKey;
-        let maxResults = $('#maxResults').val();
+        //let maxResults = $('#maxResults').val();
         console.log(stateCode);
         console.log(apiPath);
 
@@ -25,23 +25,15 @@ $(document).ready(function(){
     }
 
     function displayResults(responseJson){
-        $('#results-list').empty();
-
-        console.log(maxResults);
-        console.log(`${responseJson[i].html_url}`);
-        console.log(`${responseJson[i].description}`);
-        console.log(`${responseJson[i].fullname}`);
-        
-        for (let i = 0; i < maxResults; i++) {
+        $('#results-list').empty();      
+        for (let i = 0; i < responseJson.data.length; i++) {
             $('#results-list').append(
-                `<li><h3><a href="${responseJson[i].html_url}">${responseJson[i].fullname}</a></h3>
-                <p>${responseJson[i].description}</p>
+                `<li><h3><a href="${responseJson.data[i].html_url}">${responseJson.data[i].fullName}</a></h3>
+                <p>${responseJson.data[i].description}</p>
                 </li>`
             )};
         $('#results').removeClass('hidden');
     }
-
-
 
     function runForm(){
         $('form').submit(e=>{
